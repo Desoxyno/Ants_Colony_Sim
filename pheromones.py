@@ -14,6 +14,8 @@ class Pheromones():
         hintx = x // CELL_SIZE
         hinty = y // CELL_SIZE
         self.grid[hinty][hintx] += 0.05
+        cell_deposed = self.grid[hinty][hintx]
+        np.clip(cell_deposed, 0, 1)
     def evaporer(self):
         self.grid *= (1 - TAUX_EVAPORATION)
     def afficher(self, screen):

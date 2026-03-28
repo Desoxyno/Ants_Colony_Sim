@@ -1,5 +1,10 @@
+from pygame import Vector2
+
 SCREEN_HEIGHT = 720
 SCREEN_WIDTH = 1280
 
 CELL_SIZE = 10
 TAUX_EVAPORATION = 0.2
+
+NID = Vector2(640, 360)
+NOURRITURE = Vector2(200, 200)

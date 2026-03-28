@@ -14,7 +14,7 @@ ph_sys = Pheromones()
 
 colony = []
 for i in range(50):
-    fourmie = Fourmie(Vector2(randint(0, SCREEN_WIDTH), randint(0, 720)), 5)
+    fourmie = Fourmie(Vector2(NID.x, NID.y), 5)
     colony.append(fourmie)
 
 while running:
@@ -24,12 +24,15 @@ while running:
 
     screen.fill((250, 249, 246))
 
+    pygame.draw.circle(screen, "yellow", NID, 20)
+    pygame.draw.circle(screen, "red", NOURRITURE, 20)
+
     if pygame.mouse.get_pressed()[0]:
         m_pos = pygame.mouse.get_pos()
         ph_sys.deposer(m_pos[0], m_pos[1])
 
     for i in colony:
-        i.move_random()
+        i.move()
         pygame.draw.circle(screen, "black", i.position, 5)
         
     ph_sys.evaporer()
