@@ -12,8 +12,10 @@ class Pheromones():
         self.grid = np.zeros([row, col])
     def deposer(self, x, y):
         hintx = x // CELL_SIZE
+        hintx = max(0, min(hintx, col - 1))
         hinty = y // CELL_SIZE
-        self.grid[hinty][hintx] += 0.05
+        hinty = max(0, min(hinty, row - 1))
+        self.grid[hinty][hintx] += 0.2
         cell_deposed = self.grid[hinty][hintx]
         np.clip(cell_deposed, 0, 1)
     def evaporer(self):

@@ -32,7 +32,7 @@ while running:
         ph_sys.deposer(m_pos[0], m_pos[1])
 
     for i in colony:
-        i.move()
+        i.move(ph_sys)
         pygame.draw.circle(screen, "black", i.position, 5)
         
     ph_sys.evaporer()
