@@ -1,13 +1,14 @@
 from pygame import Vector2
 from dataclasses import dataclass
 from random import randint
+from config import *
 
 @dataclass
 class Fourmie():
     position: Vector2
     speed: float
     direction: Vector2 = Vector2(0, 0)
-    destination: Vector2 = Vector2(randint(0, 1280), randint(0, 720))
+    destination: Vector2 = Vector2(randint(0, SCREEN_WIDTH), randint(0, SCREEN_HEIGHT))
     wait_time: float = 0.2
     def move_random(self):
         if Vector2.distance_to(self.position, self.destination) < 5:
